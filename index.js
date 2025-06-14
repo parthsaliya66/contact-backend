@@ -47,13 +47,13 @@ mongoose.connect(process.env.MONGO_URI)
 
 
 
-app.use(
-  cors({
-    origin: "*", // Allow specific origin
-    methods: ["GET", "POST", "PUT", "DELETE","PATCH"],
-    allowedHeaders: "*"
-  })
-);
+// app.use(
+//   cors({
+//     origin: "*", // Allow specific origin
+//     methods: ["GET", "POST", "PUT", "DELETE","PATCH"],
+//     allowedHeaders: "*"
+//   })
+// );
 
 app.use((req, res, next) => {
     console.log(`Request URL: ${req.ip}`);
