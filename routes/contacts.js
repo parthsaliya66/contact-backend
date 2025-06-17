@@ -8,8 +8,6 @@ router.get('/', async (req, res) => {
 });
 
 router.post('/post', async (req, res) => {
-    console.log("fghjkl");
-    
   const newContact = new Contact(req.body);
   const saved = await newContact.save();
   res.json(saved);
