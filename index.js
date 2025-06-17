@@ -33,10 +33,12 @@ const https = require("https");
 const fs = require("fs");
 const path = require("path");
 const mongoose = require("mongoose");
-const bodyParser = require("body-parser");
 // const connect_to_db = require("./config/db.config.js");
 const cors = require("cors");
 const app = express();
+
+app.use(express.json());
+
 
 // Connect to the database
 
@@ -47,13 +49,13 @@ mongoose.connect(process.env.MONGO_URI)
 
 
 
-// app.use(
-//   cors({
-//     origin: "*", // Allow specific origin
-//     methods: ["GET", "POST", "PUT", "DELETE","PATCH"],
-//     allowedHeaders: "*"
-//   })
-// );
+app.use(
+  cors({
+    origin: "*", // Allow specific origin
+    methods: ["GET", "POST", "PUT", "DELETE","PATCH"],
+    allowedHeaders: "*"
+  })
+);
 
 app.use((req, res, next) => {
     console.log(`Request URL: ${req.ip}`);
